@@ -27,11 +27,11 @@ class Users_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * username 	=> required
-	 * ec_password	=> required
-	 * email		=> required
-	 * name			=> required
-	 * surname		=> required
+	 * username 		=> required
+	 * ec_password		=> required
+	 * email			=> required
+	 * name				=> required
+	 * surname			=> required
 	 * website
 	 * facebook
 	 * twitter
@@ -63,7 +63,7 @@ class Users_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * iduser		=> required
+	 * iduser			=> required
 	 * username 	
 	 * ec_password	
 	 * email		

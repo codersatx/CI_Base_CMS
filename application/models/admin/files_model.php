@@ -27,8 +27,8 @@ class Files_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * filename 		=> required
-	 * filetype			=> required
+	 * filename 			=> required
+	 * filetype				=> required
 	 * filestatus
 	 * 
 	 * @param array $options
@@ -84,7 +84,7 @@ class Files_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * idfile			=> required	
+	 * idfile				=> required	
 	 * menustatus		
 	 * 
 	 * @param array $options

@@ -27,8 +27,8 @@ class Category_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * categoryname 		=> required
-	 * categorydescription	=> required
+	 * categoryname 			=> required
+	 * categorydescription		=> required
 	 * 
 	 * @param array $options
 	 * @result int insert_id()
@@ -53,7 +53,7 @@ class Category_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * idcategory		=> required
+	 * idcategory				=> required
 	 * categoryname 	
 	 * categorydescription	
 	 * categorystatus		

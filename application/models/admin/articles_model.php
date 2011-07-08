@@ -115,7 +115,7 @@ class Articles_model extends CI_Model{
 		if (isset($options['articlestatus']))
 			$this->db->set('articlestatus', $options['articlestatus']);
 		
-		$file = $_FILES['userfile'];
+		$file = $_FILES['userfile']['name'];
 		if (!empty($file)) {
 			//config upload
 			$upload_config = array(
@@ -156,10 +156,10 @@ class Articles_model extends CI_Model{
 	 * idcategory			=> Foreign Key (default = 0)
 	 * articletitle
 	 * articlestatus
-	 * limit			limit the returned records
-	 * offset			bypass this many records
-	 * sortBy			sort by this column
-	 * sortDirection	(ASC, DESC)
+	 * limit				limit the returned records
+	 * offset				bypass this many records
+	 * sortBy				sort by this column
+	 * sortDirection		(ASC, DESC)
 	 * 
 	 * 
 	 * Returned Object (array of)

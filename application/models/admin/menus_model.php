@@ -27,9 +27,9 @@ class Menus_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * menuname 		=> required
-	 * menutype			=> required
-	 * menudescription	=> required
+	 * menuname 			=> required
+	 * menutype				=> required
+	 * menudescription		=> required
 	 * parent
 	 * menustatus
 	 * 
@@ -57,7 +57,7 @@ class Menus_model extends CI_Model{
 	 * 
 	 * Option: Values
 	 * --------------
-	 * idmenu		=> required
+	 * idmenu			=> required
 	 * menuname 	
 	 * menudescription	
 	 * menustatus		

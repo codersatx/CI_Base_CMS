@@ -10,6 +10,13 @@
 |
 */
 
+$hook['display_override'][] = array(
+	'class'  	=> 'developer_toolbar_hook',
+    'function' 	=> 'debug_mode',
+    'filename' 	=> 'developer_toolbar_hook.php',
+    'filepath' 	=> 'hooks'
+); 
+
 
 
 /* End of file hooks.php */

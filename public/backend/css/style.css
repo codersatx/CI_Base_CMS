@@ -15,7 +15,7 @@ body {
                 }
 
 #body-wrapper {
-                background: url('../images/bg-radial-gradient.gif') fixed 230px top no-repeat;
+                background: fixed 230px top no-repeat;
                 }                
 
 /********************************      Elements styling      ********************************/
@@ -314,6 +314,14 @@ ul.content-box-tabs li {
                 padding: 0 !important;
                 background-image: none !important;
                 }
+				
+ul.content-box-tabs li.alone{
+				float: left;
+           		margin: 0;
+                padding: 0 !important;
+                background-image: none !important;
+				padding: 8px 10px !important;
+}
                 
 ul.content-box-tabs li a {
                 color: #333;
@@ -335,7 +343,7 @@ ul.content-box-tabs li a.current {
                 }
 
 .content-box-content {
-                padding: 20px;
+                padding: 20px 20px 40px 20px;
                 font-size: 13px;
                 border-top: 1px solid #ccc;
                 }
@@ -359,12 +367,19 @@ ul.content-box-tabs li a.current {
                 
 #main-content table#list-elements tbody tr {
                 background: #fff;
+				border-bottom: 1px solid #DDD;
                 }
-              
-#main-content table#list-elements tbody tr.alt-row {
-                background: #f3f3f3;
-                }
-                
+
+#main-content table#list-elements tbody tr:hover,
+#main-content table#list-elements tbody tr:active{
+				background: #f0f0f0;
+				}				
+				
+#main-content table#list-elements tbody#reorder tr:hover,
+#main-content table#list-elements tbody#reorder tr:active{
+				cursor: move;
+				}				
+				
 #main-content table#list-elements td,
 #main-content table#list-elements th {
                 padding: 10px;
@@ -415,6 +430,7 @@ ul.content-box-tabs li a.current {
                 background: #f7f7f7 url('../images/shortcut-button-bg.gif') top left no-repeat;
                 display: block;
                 width: 120px;
+				height: 130px;
                 margin: 0 0 20px 0;
                 }
 
@@ -899,4 +915,23 @@ a.tt:hover span.bottom{
 	width: 100%;
 	margin: 10px;
 	border-top: 1px solid #ccc;
+}
+
+
+#submit_category{
+	float: right;
+}
+
+.addfiles fieldset{
+	border-bottom: 1px #ccc solid;
+	padding: 5px;
+	margin: 5px;
+}
+
+.addfiles input, .addfiles label{
+	display: inline;
+}
+
+.addfiles #submit_file{
+	margin-bottom: 20px;
 }
