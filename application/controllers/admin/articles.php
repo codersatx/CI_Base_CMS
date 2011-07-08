@@ -144,4 +144,24 @@ class Articles extends CI_Controller {
 		redirect('admin/articles');
 	}
 	
+	// Actions to all
+	public function all() {
+		
+		//load dependencies
+		$this->load->model('admin/articles_model');
+		
+		foreach ($_POST['check'] as $key => $value){	
+			if($_POST['dropdown'] == 'publish'){
+				$this->articles_model->UpdateArticle(array('idarticle' => $value, 'articlestatus' => 'active'));	
+			}
+			elseif($_POST['dropdown'] == 'unpublish'){
+				$this->articles_model->UpdateArticle(array('idarticle' => $value, 'articlestatus' => 'inactive'));	
+			}
+			elseif($_POST['dropdown'] == 'delete'){
+				$this->articles_model->UpdateArticle(array('idarticle' => $value, 'articlestatus' => 'deleted'));	
+			}	
+		}
+		redirect('admin/articles');
+	}
+	
 }

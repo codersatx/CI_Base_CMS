@@ -29,11 +29,21 @@
 									<?=$this->session->flashdata('flashConfirm'); ?>
 								</div>
 							</div>
-						<?php endif;?>			
+						<?php endif;?>
+						<?php echo form_open('admin/articles/all'); ?>
+						<script LANGUAGE="JavaScript">
+							function confirmSubmit(){
+							var agree=confirm("Tem a certeza que quer continuar?");
+							if (agree)
+								return true ;
+							else
+								return false ;
+							}
+						</script>			
 						<table id="list-elements">
 							<thead>
 								<tr>
-								   <!-- <th><input class="check-all" type="checkbox" /></th> -->
+								   <th><input class="check-all" type="checkbox" /></th>
 								   <th>ID</th>
 								   <th>Titulo</th>
 								   <th>Categoria</th>
@@ -44,14 +54,16 @@
 							 <tfoot>
 								<tr>
 									<td colspan="6">
-										<!-- <div class="bulk-actions align-left">
+										<div class="bulk-actions align-left">
 											<select name="dropdown">
-												<option value="option1">Choose an action...</option>
-												<option value="option2">Edit</option>
-												<option value="option3">Delete</option>
+												<option disabled="disabled">Escolha uma acção...</option>
+												<option value="publish">Publicar</option>
+												<option value="unpublish">Rascunho</option>
+												<option value="delete">Apagar</option>
 											</select>
-											<a class="button" href="#">Apply to selected</a>
-										</div> -->
+											<?php $submit_all = array('value' => 'Aplicar aos selecionados', 'class' => 'button', 'onClick' => 'return confirmSubmit()');?>
+											<?php echo form_submit($submit_all);?>
+										</div>
 										<?php if(isset($pagination)): ?>
 											<div class="pagination">
 												<?=$pagination; ?>
@@ -65,7 +77,7 @@
 							<?php if(isset($records) && is_array($records) && count($records) > 0): ?>
 								<?php foreach ($records as $row):?>
 									<tr>
-										<!-- <td><input type="checkbox" /></td> -->
+										<td><input name="check[<?=$row->idarticle; ?>]" type="checkbox" value="<?=$row->idarticle; ?>"/></td>
 										<td><?=$row->idarticle; ?></td>
 										<td><?=$row->articletitle; ?></td>
 										<td>
@@ -75,7 +87,15 @@
 												<?php endif;?>
 										<?php endforeach;?>
 										</td>
-										<td><?=$row->articlestatus; ?></td>
+										<td>
+										<?php if ($row->articlestatus == 'active') {
+											echo "Publico";
+										}
+										elseif ($row->articlestatus == 'inactive'){
+											echo "Rascunho";
+										}
+										?>
+										</td>
 										<td>
 											<!-- Icons -->
 											<?php $edit_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/pencil.png\" alt=\"Edit\" />"; ?>
@@ -85,12 +105,13 @@
 										</td>
 									</tr>
 								<?php endforeach;?>
+							
 								<?php else :?>
 								<?="Não existem valores a mostrar nesta listagem."; ?>
 							<?php  endif;?>
-							</tbody>
-							
+							</tbody>							
 						</table>
+						<?php echo form_close();?>
 					</div> <!-- End #tab1 -->   
 					<div class="tab-content <?php if ($action == 'add'):?> default-tab<?php endif;?>" id="tab2">
 					<?php 

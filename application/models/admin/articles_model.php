@@ -115,7 +115,9 @@ class Articles_model extends CI_Model{
 		if (isset($options['articlestatus']))
 			$this->db->set('articlestatus', $options['articlestatus']);
 		
-		$file = $_FILES['userfile']['name'];
+		if(isset($_FILES['userfile'])){
+			$file = $_FILES['userfile']['name'];
+		}
 		if (!empty($file)) {
 			//config upload
 			$upload_config = array(
