@@ -92,7 +92,7 @@
 											echo "Publico";
 										}
 										elseif ($row->articlestatus == 'inactive'){
-											echo "Rascunho";
+											echo "<span style=\"color: red;\">Rascunho</span>";
 										}
 										?>
 										</td>
