@@ -8,6 +8,7 @@ class Users extends CI_Controller {
 			$this->session->flashdata('flasherror', 'You must be logged into a valid admin account to access the admin area.');
 			redirect('admin/login');
 		}
+		$this->lang->load('admin_base', 'portuguese');
 	}
 	
 	

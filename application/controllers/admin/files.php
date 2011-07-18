@@ -9,6 +9,7 @@ class Files extends CI_Controller {
 			redirect('admin/login');
 		}
 		$this->load->model('admin/files_model');
+		$this->lang->load('admin_base', 'portuguese');
 	}
 	
 	

@@ -3,13 +3,13 @@
 $lang['add'] 			= "Adicionar";
 $lang['actions'] 		= "Acções";
 $lang['apply_all'] 		= "Aplicar aos selecionados";
-$lang['articles'] 		= "Artigos";
+
 $lang['article'] 		= "Artigo";
-$lang['categories'] 	= "Categorias";
+
 $lang['category'] 		= "Categoria";
 $lang['clear_filter']  	= "Limpar Filtragem";
 $lang['child_of']		= "Descendente de:";
-$lang['dashboard'] 		= "Painel Principal";
+
 $lang['date']			= "Data";
 $lang['description']	= "Descrição";
 $lang['dont_need']		= "Não precisa de ";
@@ -25,10 +25,9 @@ $lang['no_results']		= "Não existem valores a mostrar nesta listagem.";
 $lang['new_file']		= "Novo Ficheiro";
 $lang['order_by']		= "Ordenar por:";
 $lang['pass']			= "Password";
-$lang['users'] 			= "Utilizadores";
+
 $lang['user'] 			= "Utilizador";
-$lang['welcome'] 		= "Olá";
-$lang['see_website']	= "Ver site";
+
 $lang['status']  		= "Estado";
 $lang['title'] 			= "Título";
 $lang['type_user']		= "Tipo de Utilizador";
@@ -53,7 +52,29 @@ $lang['required'] 		= "Obrigatório";
  * 
  */
 
+$lang['welcome'] 		= "Olá";
+$lang['see_website']	= "Ver site";
+$lang['logout']			= "logout";
 
+$lang['dashboard'] 		= "Painel Principal";
 
+$lang['articles'] 		= "Artigos";
+	$lang['add_article']	= "Adicionar Artigo";
+	$lang['view_articles']	= "Ver Artigos";
+	
+$lang['categories'] 	= "Categorias";
+	$lang['add_category'] 		= "Adicionar Categoria";
+	$lang['view_categories'] 	= "Ver Categorias";
+	
+$lang['menus'] 			= "Menus";
+	$lang['add_menu'] 	= "Adicionar Menu";
+	$lang['view_menus']  = "Ver Menus";
+
+$lang['users'] 			= "Utilizadores";
+	$lang['add_user'] 		= "Adicionar Utilizador";
+	$lang['view_users'] 		= "Ver Utilizadores";
+	
+$lang['files'] 			= "Ficheiros";
+	$lang['manage_files'] 		= "Gerir Ficheiros";
 /* End of file admin_base.php */
 /* Location: ./application/language/portuguese/admin_base.php */

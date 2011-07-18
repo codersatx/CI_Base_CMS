@@ -9,6 +9,7 @@ class Category extends CI_Controller {
 			redirect('admin/login');
 		}
 		$this->load->model('admin/category_model');
+		$this->lang->load('admin_base', 'portuguese');
 	}
 
 	// LIST CATEGORIES

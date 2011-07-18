@@ -9,6 +9,7 @@ class Menus extends CI_Controller {
 			redirect('admin/login');
 		}
 		$this->load->model('admin/menus_model');
+		$this->lang->load('admin_base', 'portuguese');
 	}
 	
 
