@@ -30,6 +30,16 @@
 								</div>
 							</div>
 						<?php endif;?>
+						<p>Filtrar: 
+							<?php echo form_open('admin/articles');?>
+							<select name="by_cat" onChange="this.form.submit();">
+								<option value="0">Todos</option>
+								<?php foreach ($categories as $cat){ ?>
+								<option <?php if($selectedcat == $cat->idcategory):?>selected="selected"<?php endif;?> value="<?php echo $cat->idcategory;?>"><?php echo $cat->categoryname; ?></option>
+								<?php }?>
+							</select>
+						<?php echo form_close();?>
+						</p>
 						<?php echo form_open('admin/articles/all'); ?>
 						<script LANGUAGE="JavaScript">
 							function confirmSubmit(){
@@ -46,7 +56,8 @@
 								   <th><input class="check-all" type="checkbox" /></th>
 								   <th>ID</th>
 								   <th>Titulo</th>
-								   <th>Categoria</th>
+								   <th>Categoria</th>								   
+								   <th>Modificação</th>
 								   <th>Status</th>
 								   <th>acções</th>
 								</tr>
@@ -87,6 +98,7 @@
 												<?php endif;?>
 										<?php endforeach;?>
 										</td>
+										<td><?php echo $row->articletimestamp; ?></td>
 										<td>
 										<?php if ($row->articlestatus == 'active') {
 											echo "Publico";

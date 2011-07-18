@@ -12,33 +12,43 @@ class Articles extends CI_Controller {
 	}
 
 	// LIST CATEGORIES
-	public function index($offset = 0){
+	public function index($selectedcat = 0, $offset = 0){
 		
 		//load dependencies
 		$this->load->library('pagination');
 		$this->load->model('admin/category_model');
 		
+		if(!empty($_POST['by_cat']) && $_POST['by_cat'] != 0){
+			$selectedcat = $this->input->post('by_cat');
+		}
+		
 		$perpage = 10;
 		
-		$config['base_url'] 		= base_url() . 'index.php/admin/menu/index/';
-		$config['total_rows'] 		= $this->articles_model->GetArticles(array('count' => true));
+		$config['base_url'] 		= base_url() . 'index.php/admin/articles/index/' . $selectedcat;
 		$config['per_page']			= $perpage;
-		$config['uri_segment']  	= 4;
-		$config['first_link'] 		= false;
-		$config['last_link'] 		= false;
-		$config['next_link'] 		= 'Seguinte';
-		$config['prev_link'] 		= 'Anterior';
+		$config['uri_segment']  	= 5;
+		$config['first_link'] 		= true;
+		$config['last_link'] 		= true;
+		$config['next_link'] 		= 'Seguinte »';
+		$config['prev_link'] 		= '« Anterior';
+		$config['anchor_class']		= "class='number' ";
 		
-		$this->pagination->initialize($config); 
-		
+		if($selectedcat != 0){
+			$config['total_rows'] 		= $this->articles_model->GetArticles(array('idcategory' => $selectedcat, 'count' => true));
+			$data['records'] 			= $this->articles_model->GetArticles(array('idcategory' => $selectedcat, 'limit' => $perpage, 'offset' => $offset));
+		}
+		elseif ($selectedcat == 0){
+			$config['total_rows'] 		= $this->articles_model->GetArticles(array('count' => true));
+			$data['records'] 			= $this->articles_model->GetArticles(array('limit' => $perpage, 'offset' => $offset));	
+		}
+		$this->pagination->initialize($config); 		
 		$data['pagination'] = $this->pagination->create_links();
 		
-		$data['categories'] = $this->category_model->GetCategories();
-		$data['records'] = $this->articles_model->GetArticles(array('limit' => $perpage, 'offset' => $offset));
-		
-		$data['main_content'] = 'admin/articles_view';
-		$data['action'] = 'list';
-		$data['current_page'] = 'articles';
+		$data['selectedcat']	= $selectedcat;
+		$data['categories'] 	= $this->category_model->GetCategories();
+		$data['main_content'] 	= 'admin/articles_view';
+		$data['action'] 		= 'list';
+		$data['current_page'] 	= 'articles';
 		$this->load->view('admin/template/template', $data);
 		
 	}
@@ -144,7 +154,7 @@ class Articles extends CI_Controller {
 		redirect('admin/articles');
 	}
 	
-	// Actions to all
+	// ACTIONS TO ALL SELECTED ON THE LIST
 	public function all() {
 		
 		//load dependencies
