@@ -35,11 +35,11 @@ class Articles extends CI_Controller {
 		
 		if($selectedcat != 0){
 			$config['total_rows'] 		= $this->articles_model->GetArticles(array('idcategory' => $selectedcat, 'count' => true));
-			$data['records'] 			= $this->articles_model->GetArticles(array('idcategory' => $selectedcat, 'limit' => $perpage, 'offset' => $offset));
+			$data['records'] 			= $this->articles_model->GetArticles(array('sortBy' => 'order_of', 'sortDirection' => 'ASC', 'idcategory' => $selectedcat, 'limit' => $perpage, 'offset' => $offset));
 		}
 		elseif ($selectedcat == 0){
 			$config['total_rows'] 		= $this->articles_model->GetArticles(array('count' => true));
-			$data['records'] 			= $this->articles_model->GetArticles(array('limit' => $perpage, 'offset' => $offset));	
+			$data['records'] 			= $this->articles_model->GetArticles(array('sortBy' => 'order_of', 'sortDirection' => 'ASC', 'limit' => $perpage, 'offset' => $offset));	
 		}
 		$this->pagination->initialize($config); 		
 		$data['pagination'] = $this->pagination->create_links();
@@ -172,6 +172,37 @@ class Articles extends CI_Controller {
 			}	
 		}
 		redirect('admin/articles');
+	}
+	
+	// LIST PRODUCTS
+	public function order($idcategory = 0){
+
+		//load dependencies
+		$this->load->library('pagination');
+		$this->load->model('admin/category_model');
+		
+		$data['selectedcat']		= $idcategory;
+		$data['records'] 			= $this->articles_model->GetArticles(array('sortBy' => 'order_of', 'sortDirection' => 'ASC', 'idcategory' => $idcategory));
+			
+		$data['selectedcat']	= $idcategory;
+		$data['new_order']		= TRUE;
+		$data['categories'] 	= $this->category_model->GetCategories();
+		$data['main_content'] 	= 'admin/articles_view';
+		$data['action'] 		= 'list';
+		$data['current_page'] 	= 'articles';
+		$this->load->view('admin/template/template', $data);
+		
+	}
+	
+	//Re-order elements
+	public function reorder(){
+		
+		$reorder = $this->articles_model->ReOrder();
+		
+		if(!$reorder){
+			echo "Não foi possivel alterar a ordem dos produtos!";
+		}
+		
 	}
 	
 }

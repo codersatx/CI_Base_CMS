@@ -217,4 +217,33 @@ class Articles_model extends CI_Model{
 		
 	}
 	
+	
+/*
+	 * ReOrder
+	 * 
+	 * Option: Values
+	 * --------------
+	 * idarticle
+	 * neworder
+	 * 
+	 * @param array $options
+	 * @result bollean
+	 * 
+	 */
+	
+	function ReOrder() {
+		$start = 0;
+		if (count($_POST) && is_array($_POST['item'])){
+			foreach ( $_POST['item'] as $key => $val ){
+				$start++;
+				$this->db->query("UPDATE articles SET order_of = '{$start}' WHERE idarticle = '{$val}'");
+				$this->db->close();
+			}
+			return true;
+		} 
+		else{
+			return false;
+		}
+	}
+	
 }

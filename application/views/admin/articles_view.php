@@ -30,16 +30,21 @@
 								</div>
 							</div>
 						<?php endif;?>
-						<p>Filtrar: 
+						
 							<?php echo form_open('admin/articles');?>
+							<p> Filtrar: 
 							<select name="by_cat" onChange="this.form.submit();">
 								<option value="0">Todos</option>
-								<?php foreach ($categories as $cat){ ?>
+								<?php foreach ($categories as $cat): ?>
 								<option <?php if($selectedcat == $cat->idcategory):?>selected="selected"<?php endif;?> value="<?php echo $cat->idcategory;?>"><?php echo $cat->categoryname; ?></option>
-								<?php }?>
+								<?php endforeach;?>
 							</select>
+							</p>
 						<?php echo form_close();?>
-						</p>
+						<?php if($selectedcat != 0):?>
+							<a href="<?=base_url();?>index.php/admin/articles/order/<?=$selectedcat; ?>" class="button" style="float: right; margin-top: -25px;">Ordenar</a>
+						<?php endif;?>
+						
 						<?php echo form_open('admin/articles/all'); ?>
 						<script LANGUAGE="JavaScript">
 							function confirmSubmit(){
@@ -84,10 +89,14 @@
 									</td>
 								</tr>
 							</tfoot>
-							<tbody>	
+							<?php if(!empty($new_order)):?>
+								<tbody id="reorder">
+							<?php else: ?>
+								<tbody>
+							<?php endif;?>
 							<?php if(isset($records) && is_array($records) && count($records) > 0): ?>
 								<?php foreach ($records as $row):?>
-									<tr>
+									<tr id="item-<?php echo $row->idarticle; ?>">
 										<td><input name="check[<?=$row->idarticle; ?>]" type="checkbox" value="<?=$row->idarticle; ?>"/></td>
 										<td><?=$row->idarticle; ?></td>
 										<td><?=$row->articletitle; ?></td>
@@ -217,4 +226,23 @@
 			<?php endif;?>
 		</div>
 	</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#reorder').sortable({
+			opacity: '0.5',
+			update: function(e, ui){
+				newOrder = $(this).sortable("serialize");
+				console.log(newOrder);
+				$.ajax({
+					url: "<?php echo base_url();?>index.php/admin/articles/reorder",
+					type: "POST",
+					data: newOrder,
+					success: function(feedback){
+						 $("#feedback").html(feedback);
+					}
+				});
+			}
+		});
+	});
+</script>
 </body>

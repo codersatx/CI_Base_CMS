@@ -16,7 +16,9 @@
 <script type="text/javascript" src="<?=base_url(); ?>public/backend/js/jquery.datePicker.js"></script>
 <script type="text/javascript" src="<?=base_url(); ?>public/backend/js/jquery.date.js"></script> 
 <script type="text/javascript" src="<?=base_url(); ?>public/backend/jscripts/tiny_mce/tiny_mce.js"></script>
-
+	
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	tinyMCE.init({
 		// General options
