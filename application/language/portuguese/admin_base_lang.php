@@ -36,6 +36,22 @@ $lang['type_menu']     	= "Tipo de menu";
 $lang['required'] 		= "Obrigatório";
 
 
+/*
+ * 
+ * 
+ * ACTIONS
+ * 
+ * 
+ */
+
+
+/*
+ * 
+ * 
+ * SIDEBAR
+ * 
+ * 
+ */
 
 
 

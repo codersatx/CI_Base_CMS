@@ -9,6 +9,7 @@ class Articles extends CI_Controller {
 			redirect('admin/login');
 		}
 		$this->load->model('admin/articles_model');
+		$this->lang->load('admin_base', 'portuguese');
 	}
 
 	// LIST CATEGORIES
