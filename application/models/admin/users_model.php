@@ -255,10 +255,9 @@ class Users_model extends CI_Model{
 	function Secure($options = array()) {
 		//required Values
 		if(!$this->_required(
-			array('type_2', 'type_2'),
+			array('type_2'),
 			$options
 		)) return false;
-		
 		
 		$type_2 = $this->session->userdata('type_2');
 		

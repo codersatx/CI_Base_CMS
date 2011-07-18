@@ -113,7 +113,17 @@
 						$email			= array('name' => 'email', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('email'));
 						$name			= array('name' => 'name', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => utf8_decode(set_value('name')));
 						$surname		= array('name' => 'surname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => utf8_decode(set_value('surname')));
-						$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador', 'manager' => 'Manager', 'admin' => 'Administrador'); 
+						//what user is performing the action?
+						$user_type = $this->session->userdata('type_2');
+						if($user_type == 'developer'){
+							$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador', 'manager' => 'Manager', 'admin' => 'Administrador', 'developer' => 'developer');
+						}
+						elseif($user_type == 'admin'){
+							$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador', 'manager' => 'Manager');
+						}
+						else{
+							$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador');
+						}
 						$website		= array('name' => 'website', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('website'));
 						$facebook		= array('name' => 'twitter', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('facebook'));
 						$twitter		= array('name' => 'facebook', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('twitter'));
@@ -176,7 +186,17 @@
 						$email			= array('name' => 'email', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('email', $user->email));
 						$name			= array('name' => 'name', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('name', utf8_decode($user->name)));
 						$surname		= array('name' => 'surname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('surname', utf8_decode($user->surname)));
-						$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador', 'manager' => 'Manager', 'admin' => 'Administrador'); 
+						//what user is performing the action?
+						$user_type = $this->session->userdata('type_2');
+						if($user_type == 'developer'){
+							$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador', 'manager' => 'Manager', 'admin' => 'Administrador', 'developer' => 'developer');
+						}
+						elseif($user_type == 'admin'){
+							$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador', 'manager' => 'Manager');
+						}
+						else{
+							$options_user 	= array('user' => 'Utilizador', 'super_user' => 'Super Utilizador');
+						}
 						$website		= array('name' => 'website', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('website', $user->website));
 						$facebook		= array('name' => 'twitter', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('facebook', $user->facebook));
 						$twitter		= array('name' => 'facebook', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('twitter', $user->twitter));

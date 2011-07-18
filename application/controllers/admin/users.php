@@ -4,7 +4,9 @@ class Users extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
-		if(!$this->users_model->Secure(array('type_2' => 'admin'))){
+		if($this->users_model->Secure(array('type_2' => 'developer')) || $this->users_model->Secure(array('type_2' => 'admin'))
+			|| $this->users_model->Secure(array('type_2' => 'manager'))){
+		}else{
 			$this->session->flashdata('flasherror', 'You must be logged into a valid admin account to access the admin area.');
 			redirect('admin/login');
 		}
