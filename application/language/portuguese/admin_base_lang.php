@@ -1,38 +1,31 @@
 <?php
 
-$lang['add'] 			= "Adicionar";
-$lang['actions'] 		= "Acções";
-$lang['apply_all'] 		= "Aplicar aos selecionados";
 
-$lang['article'] 		= "Artigo";
-
-$lang['category'] 		= "Categoria";
-$lang['clear_filter']  	= "Limpar Filtragem";
 $lang['child_of']		= "Descendente de:";
 
 $lang['date']			= "Data";
-$lang['description']	= "Descrição";
+
 $lang['dont_need']		= "Não precisa de ";
 $lang['no_spaces']	    = "Não deve conter espaços";
-$lang['filter']			= "Filtrar por:";
+
 $lang['files'] 			= "Ficheiros";
 $lang['file'] 			= "Ficheiro";
-$lang['intro'] 			= "Introdução";
+
 $lang['listing'] 		= "Listagem";
-$lang['manage'] 		= "Gerir";
+
 $lang['name']			= "Nome";
 $lang['no_results']		= "Não existem valores a mostrar nesta listagem.";
 $lang['new_file']		= "Novo Ficheiro";
-$lang['order_by']		= "Ordenar por:";
+
 $lang['pass']			= "Password";
 
 $lang['user'] 			= "Utilizador";
 
-$lang['status']  		= "Estado";
-$lang['title'] 			= "Título";
+
+
 $lang['type_user']		= "Tipo de Utilizador";
 $lang['type_menu']     	= "Tipo de menu";
-$lang['required'] 		= "Obrigatório";
+
 
 
 /*
@@ -42,6 +35,29 @@ $lang['required'] 		= "Obrigatório";
  * 
  * 
  */
+
+$lang['add'] 			= "Adicionar";
+$lang['actions'] 		= "Acções";
+$lang['apply_all'] 		= "Aplicar aos selecionados";
+$lang['clear_filter']  	= "Limpar Filtragem";
+$lang['order_by']		= "Ordenar por:";
+$lang['filter']			= "Filtrar por:";
+
+
+/*
+ * 
+ * 
+ * ARTICLES
+ * 
+ * 
+ */
+
+$lang['required'] 		= "Obrigatório";
+$lang['category'] 		= "Categoria";
+$lang['title']			= "Título";
+$lang['intro'] 			= "Introdução";
+$lang['description']	= "Descrição";
+$lang['status']  		= "Estado";
 
 
 /*
@@ -76,5 +92,7 @@ $lang['users'] 			= "Utilizadores";
 	
 $lang['files'] 			= "Ficheiros";
 	$lang['manage_files'] 		= "Gerir Ficheiros";
+	
+	
 /* End of file admin_base.php */
 /* Location: ./application/language/portuguese/admin_base.php */
