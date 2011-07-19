@@ -1,33 +1,6 @@
 <?php
 
 
-$lang['child_of']		= "Descendente de:";
-
-$lang['date']			= "Data";
-
-$lang['dont_need']		= "Não precisa de ";
-$lang['no_spaces']	    = "Não deve conter espaços";
-
-$lang['files'] 			= "Ficheiros";
-$lang['file'] 			= "Ficheiro";
-
-$lang['listing'] 		= "Listagem";
-
-$lang['name']			= "Nome";
-$lang['no_results']		= "Não existem valores a mostrar nesta listagem.";
-$lang['new_file']		= "Novo Ficheiro";
-
-$lang['pass']			= "Password";
-
-$lang['user'] 			= "Utilizador";
-
-
-
-$lang['type_user']		= "Tipo de Utilizador";
-$lang['type_menu']     	= "Tipo de menu";
-
-
-
 /*
  * 
  * 
@@ -42,7 +15,8 @@ $lang['apply_all'] 		= "Aplicar aos selecionados";
 $lang['clear_filter']  	= "Limpar Filtragem";
 $lang['order_by']		= "Ordenar por:";
 $lang['filter']			= "Filtrar por:";
-
+$lang['listing'] 		= "Listagem";
+$lang['edit']			= "Guardar Alterações";
 
 /*
  * 
@@ -58,7 +32,44 @@ $lang['title']			= "Título";
 $lang['intro'] 			= "Introdução";
 $lang['description']	= "Descrição";
 $lang['status']  		= "Estado";
+$lang['active'] 		= "Activo";
+$lang['inactive'] 		= "Rascunho";
+$lang['choose_file']	= "Carregar Ficheiro";
+$lang['no_choose_file'] = "Nenhum Ficheiro Selecionado";
 
+/*
+ * 
+ * 
+ * MENUS
+ * 
+ * 
+ */
+
+$lang['name']			= "Nome";
+$lang['type_menu']     	= "Tipo de menu";
+$lang['child_of']		= "Descendente de:";
+$lang['article']		= "Artigo";
+$lang['category']		= "Categoria";
+
+
+/*
+ * 
+ * 
+ * USERS
+ * 
+ * 
+ */
+
+$lang['date']			= "Data";
+$lang['dont_need']		= "Não precisa de ";
+$lang['no_spaces']	    = "Não deve conter espaços";
+$lang['files'] 			= "Ficheiros";
+$lang['file'] 			= "Ficheiro";
+$lang['pass']			= "Password";
+$lang['user'] 			= "Utilizador";
+$lang['type_user']		= "Tipo de Utilizador";
+$lang['no_results']		= "Não existem valores a mostrar nesta listagem.";
+$lang['new_file']		= "Novo Ficheiro";
 
 /*
  * 
