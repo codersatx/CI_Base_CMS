@@ -13,7 +13,7 @@ class Manage extends CI_Controller {
 		$this->lang->load('admin_base', 'portuguese');
 	}
 	
-	public function index(){
+	public function index(){	
 		$data['main_content'] = 'admin/home_view';
 		$this->load->view('admin/template/template', $data);
 	}

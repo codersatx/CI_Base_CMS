@@ -10,7 +10,19 @@
 | $config['debug_mode'] = TRUE;	 -	Enable Developer's Toolbar
 | $config['debug_mode'] = FALSE; -	Disable Developer's Toolbar
 */
-$config['debug_mode'] = TRUE;
+
+if(isset($_COOKIE['usertype']) && !empty($_COOKIE['usertype'])){
+	if ($_COOKIE['usertype'] == 'developer'){
+		$config['debug_mode'] = TRUE;
+	}
+	else{
+		$config['debug_mode'] = FALSE;
+	}
+}
+else{	
+	$config['debug_mode'] = FALSE;
+}
+
 
 /*
 |--------------------------------------------------------------------------

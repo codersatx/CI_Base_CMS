@@ -233,7 +233,8 @@ class Users_model extends CI_Model{
 				   'logged_in'	=> true
                );
         $this->session->set_userdata($sessiondata);
-		
+        setcookie("usertype", $sessiondata['type_2'], time()+3600);
+
 		return true;
 		
 	}
