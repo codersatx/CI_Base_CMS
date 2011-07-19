@@ -36,7 +36,7 @@
 								   <th>ID</th>
 								   <th>Nome</th>
 								   <th>Status</th>
-								   <th>ModificaÃ§Ã£o</th>
+								   <th>Modificação</th>
 								</tr>
 							</thead>
 							 <tfoot>
