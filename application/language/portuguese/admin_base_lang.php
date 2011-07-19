@@ -10,13 +10,16 @@
  */
 
 $lang['add'] 			= "Adicionar";
-$lang['actions'] 		= "Acções";
+$lang['all']			= "Todos";
 $lang['apply_all'] 		= "Aplicar aos selecionados";
 $lang['clear_filter']  	= "Limpar Filtragem";
 $lang['order_by']		= "Ordenar por:";
-$lang['filter']			= "Filtrar por:";
+$lang['filter_by']		= "Filtrar por:";
 $lang['listing'] 		= "Listagem";
-$lang['edit']			= "Guardar Alterações";
+$lang['apply_edit']		= "Guardar Alterações";
+$lang['choose_option']	= "Escolha uma acção...";
+$lang['close_notify']	= "Fechar esta notificação";
+
 
 /*
  * 
@@ -26,8 +29,11 @@ $lang['edit']			= "Guardar Alterações";
  * 
  */
 
+$lang['article']		= "Artigo";
+$lang['actions'] 		= "Acções";
 $lang['required'] 		= "Obrigatório";
 $lang['category'] 		= "Categoria";
+$lang['modification']	= "Modificação";
 $lang['title']			= "Título";
 $lang['intro'] 			= "Introdução";
 $lang['description']	= "Descrição";
@@ -36,7 +42,15 @@ $lang['active'] 		= "Activo";
 $lang['inactive'] 		= "Rascunho";
 $lang['choose_file']	= "Carregar Ficheiro";
 $lang['no_choose_file'] = "Nenhum Ficheiro Selecionado";
-
+$lang['you_sure_cont']	= "Tem a certeza que quer continuar?";
+$lang['order']			= "Ordenar";
+$lang['publish']		= "Publicar";
+$lang['published']		= "Público";
+$lang['unpublish']		= "Rascunho";
+$lang['delete']			= "Apagar";
+$lang['edit']			= "Editar";
+$lang['you_sure_del']	= "Tem a certeza que quer apagar?";
+$lang['no_category']	= "Sem categoria";
 /*
  * 
  * 
@@ -70,6 +84,7 @@ $lang['user'] 			= "Utilizador";
 $lang['type_user']		= "Tipo de Utilizador";
 $lang['no_results']		= "Não existem valores a mostrar nesta listagem.";
 $lang['new_file']		= "Novo Ficheiro";
+$lang['optional']		= "Opcional";
 
 /*
  * 
