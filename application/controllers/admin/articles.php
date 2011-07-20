@@ -4,14 +4,17 @@ class Articles extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+		
+		//load dependencies
+		$this->lang->load('admin_base', 'portuguese');
+		$this->load->model('admin/articles_model');
+		
 		if($this->users_model->Secure(array('type_2' => 'developer')) || $this->users_model->Secure(array('type_2' => 'admin'))
 			|| $this->users_model->Secure(array('type_2' => 'manager'))){
 		}else{
-			$this->session->flashdata('flasherror', 'You must be logged into a valid admin account to access the admin area.');
+			$this->session->flashdata('flasherror', $this->lang->line('you_must_logged'));
 			redirect('admin/login');
 		}
-		$this->load->model('admin/articles_model');
-		$this->lang->load('admin_base', 'portuguese');
 	}
 
 	// LIST CATEGORIES
@@ -32,8 +35,8 @@ class Articles extends CI_Controller {
 		$config['uri_segment']  	= 5;
 		$config['first_link'] 		= true;
 		$config['last_link'] 		= true;
-		$config['next_link'] 		= 'Seguinte »';
-		$config['prev_link'] 		= '« Anterior';
+		$config['next_link'] 		= $this->lang->line('next').' »';
+		$config['prev_link'] 		= '« '.$this->lang->line('previous');
 		$config['anchor_class']		= "class='number' ";
 		
 		if($selectedcat != 0){
@@ -75,11 +78,11 @@ class Articles extends CI_Controller {
 			$new_article = $this->articles_model->AddArticle($_POST, $_FILES);
 			
 			if ($new_article) {
-				$this->session->set_flashdata('flashConfirm', 'O Artigo foi criado com sucesso!');
+				$this->session->set_flashdata('flashConfirm', $this->lang->line('article_created'));
 				redirect('admin/articles');
 			}
 			else {
-				$this->session->set_flashdata('flashError', 'Houve um erro na base de dados ao adicionar o Artigo!');
+				$this->session->set_flashdata('flashError', $this->lang->line('article_nocreated'));
 				redirect('admin/articles');
 			}
 		}
@@ -109,18 +112,18 @@ class Articles extends CI_Controller {
 		
 		//validate form
 		$this->form_validation->set_error_delimiters('<span class="input-notification error png_bg">', '</span>');
-		$this->form_validation->set_rules('articletitle', 'Titulo', 'trim|required');
-		$this->form_validation->set_rules('articleintro', 'Introdução', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('articletitle', $this->lang->line('title'), 'trim|required');
+		$this->form_validation->set_rules('articleintro', $this->lang->line('intro'), 'trim|required|min_length[5]');
 		
 		if ($this->form_validation->run()) {
 			//validation passes
 			$_POST['idarticle'] = $idarticle;
 			if ($this->articles_model->UpdateArticle($_POST, $_FILES)) {
-				$this->session->set_flashdata('flashConfirm', 'O Artigo foi editado com sucesso!');
+				$this->session->set_flashdata('flashConfirm', $this->lang->line('article_edited'));
 				redirect('admin/articles');
 			}
 			else {
-				$this->session->set_flashdata('flashError', 'Houve um erro ao editar o Artigo!');
+				$this->session->set_flashdata('flashError', $this->lang->line('article_noedited'));
 				redirect('admin/articles');
 			}
 		}
@@ -144,7 +147,7 @@ class Articles extends CI_Controller {
 		
 		if (!empty($active_article)){
 			
-			$this->session->set_flashdata('flashError', 'Este artigo est&aacute; associado a um menu. N&atilde;o pode ser apagado.'); 
+			$this->session->set_flashdata('flashError', $this->lang->line('article_nodeleted')); 
 			redirect('admin/articles');
 			
 		} 
@@ -153,7 +156,7 @@ class Articles extends CI_Controller {
 				'idarticle' 	=> $idarticle,
 				'articlestatus'	=> 'deleted'
 			));
-		$this->session->set_flashdata('flashConfirm', 'O Artigo foi apagado com sucesso.');
+		$this->session->set_flashdata('flashConfirm', $this->lang->line('article_deleted'));
 		redirect('admin/articles');
 	}
 	
@@ -203,7 +206,7 @@ class Articles extends CI_Controller {
 		$reorder = $this->articles_model->ReOrder();
 		
 		if(!$reorder){
-			echo "Não foi possivel alterar a ordem dos produtos!";
+			echo $this->lang->line('no_reorder');
 		}
 		
 	}

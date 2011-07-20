@@ -18,6 +18,8 @@ $lang['filter_by']		= "Filtrar por:";
 $lang['listing'] 		= "Listagem";
 $lang['save_changes']	= "Guardar Alterações";
 $lang['choose_option']	= "Escolha uma acção...";
+$lang['next']			= "Seguinte";
+$lang['previous']		= "Anterior";
 
 /*
  * 
@@ -48,6 +50,7 @@ $lang['delete']			= "Apagar";
 $lang['edit']			= "Editar";
 $lang['no_category']	= "Sem categoria";
 
+
 /*
  * 
  * 
@@ -65,9 +68,18 @@ $lang['categ_'] 	= "Categorias";
  * 
  * 
  */
-$lang['you_sure_del']	= "Tem a certeza que quer apagar?";
-$lang['you_sure_cont']	= "Tem a certeza que quer continuar?";
-$lang['close_notify']	= "Fechar esta notificação";
+
+$lang['you_sure_del']		 = "Tem a certeza que quer apagar?";
+$lang['you_sure_cont']	     = "Tem a certeza que quer continuar?";
+$lang['close_notify']		 = "Fechar esta notificação";
+$lang['you_must_logged']	 = "You must be logged into a valid admin account to access the admin area.";
+$lang['article_created']	 = "O Artigo foi criado com sucesso!";	
+$lang['article_edited'] 	 = "O Artigo foi editado com sucesso!";
+$lang['article_deleted']	 = "O Artigo foi apagado com sucesso.";
+$lang['article_nocreated']	 = "Houve um erro na base de dados ao adicionar o Artigo!";
+$lang['article_noedited']	 = "Houve um erro ao editar o Artigo!";
+$lang['article_nodeleted'] 	 = "Este artigo est&aacute; associado a um menu. N&atilde;o pode ser apagado.";
+$lang['no_reorder']			 = "Não foi possivel alterar a ordem dos produtos!";
 /*
  * 
  * 
