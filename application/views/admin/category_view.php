@@ -8,7 +8,7 @@
 					<?php if ($action == 'list' || $action == 'add'):?>
 					<ul class="content-box-tabs">
 						<?php if ($action == 'list'):?><li><a href="#tab1" class="default-tab"><?=$this->lang->line('listing'); ?></a></li><?php endif;?> <!-- href must be unique and match the id of target div -->
-						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"> <?=$this->lang->line('add'); ?> <?=$this->lang->line('category'); ?></a> <?php endif;?>
+						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"><?=$this->lang->line('add_category'); ?></a> <?php endif;?>
 					</ul>	
 					<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -68,11 +68,12 @@
 										<td><?=$row->idcategory; ?></td>
 										<td><?=$row->categoryname; ?></td>
 										<td>
-										<?php if($row->categorystatus == "active") : 
-											echo $this->lang->line('published'); 
-											elseif( $row->categorystatus == "inactive" ) :
-												echo $this->lang->line('unpublished'); 
-										 endif; ?>
+										<?php if($row->categorystatus == "active") { 
+												echo $this->lang->line('published');
+												} 
+											elseif( $row->categorystatus == "inactive" ) {
+												echo "<span style=\"color: red;\">". $this->lang->line('unpublished') ."</span>"; 
+											} ?>
 										</td>
 										<td>
 											<!-- Icons -->
@@ -102,7 +103,7 @@
 								<?=form_input($categoryname);?> <?=form_error('categoryname')?>
 								<br/><br/>
 								<?=form_label($this->lang->line('description'), 'categorydescription'); ?>
-								<?=form_textarea($categorydescription);?>
+								<?=form_textarea($categorydescription);?> <?=form_error('categorydescription')?>
 								<br/><br/>
 								<?=form_label($this->lang->line('status'), 'categorystatus'); ?>
 								<?=form_dropdown('categorystatus', $options_category, 'active'); ?>
@@ -133,7 +134,7 @@
 								<?=form_input($categoryname);?> <?=form_error('categoryname')?>
 								<br/><br/>
 								<?=form_label($this->lang->line('description'), 'categorydescription'); ?>
-								<?=form_textarea($categorydescription);?>
+								<?=form_textarea($categorydescription);?> <?=form_error('categorydescription')?>
 								<br/><br/>
 								<?=form_label($this->lang->line('status'), 'categorystatus'); ?>
 								<?=form_dropdown('categorystatus', $options_category, utf8_encode($category->categorystatus)); ?>
