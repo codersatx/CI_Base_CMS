@@ -4,11 +4,11 @@
 		<div id="main-content">
 			<div class="content-box"><!-- Start Content Box -->
 				<div class="content-box-header">
-					<h3>Menus</h3>
+					<h3><?=$this->lang->line('menus') ?></h3>
 					<?php if ($action == 'list' || $action == 'add'):?>
 					<ul class="content-box-tabs">
-						<?php if ($action == 'list'):?><li><a href="#tab1" class="default-tab">Listagem</a></li><?php endif;?> <!-- href must be unique and match the id of target div -->
-						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"> Adicionar Menu</a> <?php endif;?>
+						<?php if ($action == 'list'):?><li><a href="#tab1" class="default-tab"><?=$this->lang->line('listing'); ?></a></li><?php endif;?> <!-- href must be unique and match the id of target div -->
+						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"> <?=$this->lang->line('add_menu'); ?> </a> <?php endif;?>
 					</ul>	
 					<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -16,7 +16,7 @@
 					<div class="tab-content <?php if ($action == 'list'):?> default-tab<?php endif;?>" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->	
 						<?php if ($this->session->flashdata('flashError')):?>
 							<div class="notification error png_bg">
-								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="<?=$this->lang->line('close_notify'); ?>" alt="close" /></a>
 								<div>
 									<?=$this->session->flashdata('flashError'); ?>
 								</div>
@@ -24,7 +24,7 @@
 						<?php endif;?>	
 						<?php if ($this->session->flashdata('flashConfirm')):?>
 							<div class="notification success png_bg">
-								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="<?=$this->lang->line('close_notify'); ?>" alt="close" /></a>
 								<div>
 									<?=$this->session->flashdata('flashConfirm'); ?>
 								</div>
@@ -35,9 +35,9 @@
 								<tr>
 								   <!-- <th><input class="check-all" type="checkbox" /></th> -->
 								   <th>ID</th>
-								   <th>Nome</th>
-								   <th>Status</th>
-								   <th>acções</th>
+								   <th><?=$this->lang->line('name'); ?> </th>
+								   <th><?=$this->lang->line('status'); ?> </th>
+								   <th><?=$this->lang->line('actions'); ?></th>
 								</tr>
 							</thead>
 							 <tfoot>
@@ -68,13 +68,20 @@
 											<!-- <td><input type="checkbox" /></td> -->
 											<td><?=$row->idmenu; ?></td>
 											<td><strong style="font-size: 14px;"><?=$row->menuname; ?></strong></td>
-											<td><?=$row->menustatus; ?></td>
+											<td>
+											<?php if($row->menustatus == "active") { 
+															echo $this->lang->line('published');
+													} 
+													elseif( $row->menustatus == "inactive" ) {
+															echo "<span style=\"color: red;\">". $this->lang->line('unpublished') ."</span>";
+													} ?>
+											</td>
 											<td>
 												<!-- Icons -->
 												<?php $edit_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/pencil.png\" alt=\"Edit\" />"; ?>
 												<?php $delete_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/cross.png\" alt=\"Delete\" />"; ?>
-												<?=anchor("admin/menus/edit/$row->idmenu", $edit_icon, 'title="Editar"'); ?>
-												<?=anchor("admin/menus/delete/$row->idmenu", $delete_icon, 'title="Apagar" onclick="return confirm(\'Tem a certeza que quer apagar?\')"'); ?> 
+												<?=anchor("admin/menus/edit/$row->idmenu", $edit_icon, 'title=" '. $this->lang->line('edit') . '"'); ?>
+												<?=anchor("admin/menus/delete/$row->idmenu", $delete_icon, 'title=" '. $this->lang->line('delete') . '" onclick="return confirm(\'' . $this->lang->line('you_sure_del') . '\')"'); ?> 
 											</td>
 										</tr>
 									<?php foreach ($records as $submenu):?>
@@ -84,13 +91,20 @@
 													<!-- <td><input type="checkbox" /></td> -->
 													<td><?=$submenu->idmenu; ?></td>
 													<td>&nbsp;&nbsp;&nbsp;&nbsp;<?=$submenu->menuname; ?></td>
-													<td><?=$submenu->menustatus; ?></td>
+													<td>
+													<?php if($submenu->menustatus == "active") { 
+															echo $this->lang->line('published');
+														} 
+														elseif( $submenu->menustatus == "inactive" ) {
+															echo "<span style=\"color: red;\">". $this->lang->line('unpublished') ."</span>";
+														} ?>
+													</td>
 													<td>
 														<!-- Icons -->
 														<?php $edit_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/pencil.png\" alt=\"Edit\" />"; ?>
 														<?php $delete_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/cross.png\" alt=\"Delete\" />"; ?>
-														<?=anchor("admin/menus/edit/$submenu->idmenu", $edit_icon, 'title="Editar"'); ?>
-														<?=anchor("admin/menus/delete/$submenu->idmenu", $delete_icon, 'title="Apagar" onclick="return confirm(\'Tem a certeza que quer apagar?\')"'); ?> 
+														<?=anchor("admin/menus/edit/$submenu->idmenu", $edit_icon, 'title=" '. $this->lang->line('edit') . '"'); ?>
+														<?=anchor("admin/menus/delete/$submenu->idmenu", $delete_icon, 'title=" '. $this->lang->line('delete') . '" onclick="return confirm(\'' . $this->lang->line('you_sure_del') . '\')"'); ?> 
 													</td>
 												</tr>
 												<?php foreach($records as $subsubmenu):?>
@@ -99,13 +113,20 @@
 															<!-- <td><input type="checkbox" /></td> -->
 															<td><?=$subsubmenu->idmenu; ?></td>
 															<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$subsubmenu->menuname; ?></td>
-															<td><?=$subsubmenu->menustatus; ?></td>
+															<td>
+															<?php if($subsubmenu->menustatus == "active") { 
+																		echo $this->lang->line('published');
+																	} 
+																	elseif( $subsubmenu->menustatus == "inactive" ) {
+																		echo "<span style=\"color: red;\">". $this->lang->line('unpublished') ."</span>";
+																	} ?>
+															</td>
 															<td>
 																<!-- Icons -->
 																<?php $edit_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/pencil.png\" alt=\"Edit\" />"; ?>
 																<?php $delete_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/cross.png\" alt=\"Delete\" />"; ?>
-																<?=anchor("admin/menus/edit/$subsubmenu->idmenu", $edit_icon, 'title="Editar"'); ?>
-																<?=anchor("admin/menus/delete/$subsubmenu->idmenu", $delete_icon, 'title="Apagar" onclick="return confirm(\'Tem a certeza que quer apagar?\')"'); ?> 
+																<?=anchor("admin/menus/edit/$subsubmenu->idmenu", $edit_icon, 'title=" '. $this->lang->line('edit') . '"'); ?>
+																<?=anchor("admin/menus/delete/$subsubmenu->idmenu", $delete_icon, 'title=" '. $this->lang->line('delete') . '" onclick="return confirm(\'' . $this->lang->line('you_sure_del') . '\')"'); ?> 
 															</td>
 														</tr>
 													<?php endif;?>
@@ -123,19 +144,19 @@
 					<?php 
 						$menuname			= array('name' => 'menuname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('menuname'));
 						$menudescription	= array('name' => 'menudescription', 'class' => 'text-input textarea wysiwyg', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('menudescription'));
-						$options_menu 		= array('active' => 'Activa', 'inactive' => 'inactiva'); 
-						$options_menutype 	= array('static' => 'Estático', 'category' => 'Categoria'); 
-						$submit				= array('class' => 'button', 'id' => 'submit_menu', 'value' => 'Adicionar');
+						$options_menu 		= array('active' => $this->lang->line('active') , 'inactive' => $this->lang->line('inactive') ); 
+						$options_menutype 	= array('static' => $this->lang->line('static') , 'category' => $this->lang->line('category') ); 
+						$submit				= array('class' => 'button', 'id' => 'submit_menu', 'value' => $this->lang->line('add') );
 					?>
 						<?=form_open('admin/menus/add');?>
-							<?=form_fieldset('Obrigatório'); ?>
-								<?=form_label('Nome', 'menuname'); ?>
+							<?=form_fieldset($this->lang->line('fieldset_required') ); ?>
+								<?=form_label($this->lang->line('name') , 'menuname'); ?>
 								<?=form_input($menuname);?> <?=form_error('menuname')?>
 								<br/><br/>
-								<?=form_label('Tipo de menu', 'menutype'); ?>
+								<?=form_label($this->lang->line('type_menu') , 'menutype'); ?>
 								<?=form_dropdown('menutype', $options_menutype, 'static', 'id="menutype" class="menutype"'); ?>
 								<br/><br/>
-								<?=form_label('Artigo', 'idarticle'); ?>
+								<?=form_label($this->lang->line('article') , 'idarticle'); ?>
 									<select name="idarticle">
 										<option></option>
 										<?php foreach ($articles as $article):?>
@@ -143,7 +164,7 @@
 										<?php endforeach;?>
 									</select>
 								<br/><br/>
-								<?=form_label('Categoria', 'idarticle'); ?>
+								<?=form_label($this->lang->line('category') , 'idarticle'); ?>
 									<select name="idcategory">
 										<option></option>
 										<?php foreach ($categories as $category):?>
@@ -151,7 +172,7 @@
 										<?php endforeach;?>
 									</select>
 								<br/><br/>
-								<?=form_label('Descendente de:', 'parent'); ?>
+								<?=form_label($this->lang->line('child_of') , 'parent'); ?>
 									<select name="parent">
 										<option></option>
 										<?php foreach ($menus as $menu):?>
@@ -173,10 +194,10 @@
 										<?php endforeach;?>
 									</select>
 								<br/><br/>
-								<?=form_label('Descrição', 'menudescription'); ?>
+								<?=form_label($this->lang->line('description') , 'menudescription'); ?>
 								<?=form_textarea($menudescription);?>
 								<br/><br/>
-								<?=form_label('Estado', 'menustatus'); ?>
+								<?=form_label($this->lang->line('status') , 'menustatus'); ?>
 								<?=form_dropdown('menustatus', $options_menu, 'active'); ?>
 								<br/><br/>
 							<?=form_fieldset_close();?>
@@ -187,7 +208,7 @@
 			</div> <!-- End .content-box -->
 			<?php elseif ($action == 'edit'):?>
 				<ul class="content-box-tabs">
-					<li><a href="#tab1" class="default-tab">Editar Menu</a></li> <!-- href must be unique and match the id of target div -->
+					<li><a href="#tab1" class="default-tab"><?=$this->lang->line('edit')  ?> <?=$this->lang->line('menu')  ?></a></li> <!-- href must be unique and match the id of target div -->
 				</ul>
 				<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -196,18 +217,18 @@
 					<?php 
 						$menuname			= array('name' => 'menuname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('menuname', $menu->menuname));
 						$menudescription	= array('name' => 'menudescription', 'class' => 'text-input textarea wysiwyg', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('menudescription', utf8_decode($menu->menudescription)));
-						$options_menu 		= array('active' => 'Activa', 'inactive' => 'inactiva'); 
-						$submit				= array('class' => 'button', 'id' => 'submit_menu', 'value' => 'Salvar Alterações');
+						$options_menu 		= array('active' => $this->lang->line('active') , 'inactive' => $this->lang->line('inactive') ); 
+						$submit				= array('class' => 'button', 'id' => 'submit_menu', 'value' => $this->lang->line('save_changes') );
 					?>
 						<?=form_open('admin/menus/edit/' . $menu->idmenu);?>
-							<?=form_fieldset('Obrigatório'); ?>
-								<?=form_label('Nome', 'menuname'); ?>
+							<?=form_fieldset($this->lang->line('fieldset_required') ); ?>
+								<?=form_label($this->lang->line('name') , 'menuname'); ?>
 								<?=form_input($menuname);?> <?=form_error('menuname')?>
 								<br/><br/>
-								<?=form_label('Descrição', 'menudescription'); ?>
+								<?=form_label($this->lang->line('description') , 'menudescription'); ?>
 								<?=form_textarea($menudescription);?>
 								<br/><br/>
-								<?=form_label('Estado', 'menustatus'); ?>
+								<?=form_label($this->lang->line('status') , 'menustatus'); ?>
 								<?=form_dropdown('menustatus', $options_menu, utf8_encode($menu->menustatus)); ?>
 								<br/><br/>
 							<?=form_fieldset_close();?>
