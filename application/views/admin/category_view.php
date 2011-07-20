@@ -67,7 +67,13 @@
 										<!-- <td><input type="checkbox" /></td> -->
 										<td><?=$row->idcategory; ?></td>
 										<td><?=$row->categoryname; ?></td>
-										<td><?=$row->categorystatus; ?></td>
+										<td>
+										<?php if($row->categorystatus == "active") : 
+											echo $this->lang->line('published'); 
+											elseif( $row->categorystatus == "inactive" ) :
+												echo $this->lang->line('unpublished'); 
+										 endif; ?>
+										</td>
 										<td>
 											<!-- Icons -->
 											<?php $edit_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/pencil.png\" alt=\"Edit\" />"; ?>
@@ -87,18 +93,18 @@
 					<?php 
 						$categoryname			= array('name' => 'categoryname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('categoryname'));
 						$categorydescription	= array('name' => 'categorydescription', 'class' => 'text-input textarea wysiwyg', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('categorydescription'));
-						$options_category 		= array('active' => 'Activa', 'inactive' => 'inactiva'); 
+						$options_category 		= array('active' => $this->lang->line('active'), 'inactive' => $this->lang->line('inactive')); 
 						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => $this->lang->line('add') );
 					?>
 						<?=form_open('admin/category/add');?>
-							<?=form_fieldset($this->lang->line('required')); ?>
-								<?=form_label('Nome', 'categoryname'); ?>
+							<?=form_fieldset($this->lang->line('fieldset_required')); ?>
+								<?=form_label($this->lang->line('name') , 'categoryname'); ?>
 								<?=form_input($categoryname);?> <?=form_error('categoryname')?>
 								<br/><br/>
-								<?=form_label('Descrição', 'categorydescription'); ?>
+								<?=form_label($this->lang->line('description'), 'categorydescription'); ?>
 								<?=form_textarea($categorydescription);?>
 								<br/><br/>
-								<?=form_label('Estado', 'categorystatus'); ?>
+								<?=form_label($this->lang->line('status'), 'categorystatus'); ?>
 								<?=form_dropdown('categorystatus', $options_category, 'active'); ?>
 								<br/><br/>
 							<?=form_fieldset_close();?>
@@ -109,7 +115,7 @@
 			</div> <!-- End .content-box -->
 			<?php elseif ($action == 'edit'):?>
 				<ul class="content-box-tabs">
-					<li><a href="#tab1" class="default-tab">Editar Categoria</a></li> <!-- href must be unique and match the id of target div -->
+					<li><a href="#tab1" class="default-tab"><?=$this->lang->line('add'); ?>  <?=$this->lang->line('category')  ?></a></li> <!-- href must be unique and match the id of target div -->
 				</ul>
 				<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -118,18 +124,18 @@
 					<?php 
 						$categoryname			= array('name' => 'categoryname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('categoryname', $category->categoryname));
 						$categorydescription	= array('name' => 'categorydescription', 'class' => 'text-input textarea wysiwyg', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('categorydescription', utf8_decode($category->categorydescription)));
-						$options_category 		= array('active' => 'Activa', 'inactive' => 'inactiva'); 
-						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => 'Salvar Alterações');
+						$options_category 		= array('active' => $this->lang->line('active'), 'inactive' => $this->lang->line('inactive')); 
+						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => $this->lang->line('save_changes'));
 					?>
 						<?=form_open('admin/category/edit/' . $category->idcategory);?>
-							<?=form_fieldset($this->lang->line('required')); ?>
-								<?=form_label('Nome', 'categoryname'); ?>
+							<?=form_fieldset($this->lang->line('fieldset_required')); ?>
+								<?=form_label($this->lang->line('name') , 'categoryname'); ?>
 								<?=form_input($categoryname);?> <?=form_error('categoryname')?>
 								<br/><br/>
-								<?=form_label('Descrição', 'categorydescription'); ?>
+								<?=form_label($this->lang->line('description'), 'categorydescription'); ?>
 								<?=form_textarea($categorydescription);?>
 								<br/><br/>
-								<?=form_label('Estado', 'categorystatus'); ?>
+								<?=form_label($this->lang->line('status'), 'categorystatus'); ?>
 								<?=form_dropdown('categorystatus', $options_category, utf8_encode($category->categorystatus)); ?>
 								<br/><br/>
 							<?=form_fieldset_close();?>

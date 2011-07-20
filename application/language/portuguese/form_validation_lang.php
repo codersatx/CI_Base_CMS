@@ -1,13 +1,13 @@
 <?php
 
-$lang['required']			= "O campo %s Ã© de preenchimento obrigatÃ³rio.";
+$lang['required']			= "O campo %s é de preenchimento obrigatório.";
 $lang['isset']				= "O campo %s deve ter um valor.";
-$lang['valid_email']		= "O campo %s deve conter um email vÃ¡lido.";
-$lang['valid_emails']		= "Os campos %s devem conter emails vÃ¡lidos.";
-$lang['valid_url']			= "O campo %s deve conter um URL vÃ¡lido.";
-$lang['valid_ip']			= "O campo %s deve conter um IP vÃ¡lido.";
+$lang['valid_email']		= "O campo %s deve conter um email válido.";
+$lang['valid_emails']		= "Os campos %s devem conter emails válidos.";
+$lang['valid_url']			= "O campo %s deve conter um URL válido.";
+$lang['valid_ip']			= "O campo %s deve conter um IP válido.";
 $lang['min_length']			= "O campo %s deve ter no minimo %s caracteres.";
-$lang['max_length']			= "O campo %s nÃ£o deve ter mais de %s caracteres.";
+$lang['max_length']			= "O campo %s não deve ter mais de %s caracteres.";
 $lang['exact_length']		= "O campo %s deve ter exactamente %s caracteres.";
 $lang['alpha']				= "O campo %s deve conter apenas caracteres alfabÃ©ticos.";
 $lang['alpha_numeric']		= "O campo %s deve conter apenas caracteres alpha-numÃ©ricos.";

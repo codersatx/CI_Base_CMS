@@ -69,9 +69,9 @@ class Articles extends CI_Controller {
 		
 		//validate form
 		$this->form_validation->set_error_delimiters('<span class="input-notification error png_bg">', '</span>');
-		$this->form_validation->set_rules('articletitle', 'Titulo', 'trim|required');
-		$this->form_validation->set_rules('articleintro', 'Introdução', 'trim|required|min_length[5]');
-		$this->form_validation->set_rules('articledescription', 'Descrição', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('articletitle', $this->lang->line('title'), 'trim|required');
+		$this->form_validation->set_rules('articleintro', $this->lang->line('intro'), 'trim|required|min_length[5]');
+		//$this->form_validation->set_rules('articledescription', 'Descrição', 'trim|required|min_length[5]');
 		
 		if ($this->form_validation->run()) {
 			

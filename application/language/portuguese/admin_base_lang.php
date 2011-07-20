@@ -20,6 +20,7 @@ $lang['save_changes']	= "Guardar Alterações";
 $lang['choose_option']	= "Escolha uma acção...";
 $lang['next']			= "Seguinte";
 $lang['previous']		= "Anterior";
+$lang['trash']			= "Reciclagem";
 
 /*
  * 
@@ -29,26 +30,26 @@ $lang['previous']		= "Anterior";
  * 
  */
 
-$lang['article']		= "Artigo";
-$lang['actions'] 		= "Acções";
-$lang['required'] 		= "Obrigatório";
-$lang['category'] 		= "Categoria";
-$lang['modification']	= "Modificação";
-$lang['title']			= "Título";
-$lang['intro'] 			= "Introdução";
-$lang['description']	= "Descrição";
-$lang['status']  		= "Estado";
-$lang['active'] 		= "Activo";
-$lang['inactive'] 		= "Rascunho";
-$lang['choose_file']	= "Carregar Ficheiro";
-$lang['no_choose_file'] = "Nenhum Ficheiro Selecionado";
-$lang['order']			= "Ordenar";
-$lang['publish']		= "Publicar";
-$lang['published']		= "Público";
-$lang['unpublish']		= "Rascunho";
-$lang['delete']			= "Apagar";
-$lang['edit']			= "Editar";
-$lang['no_category']	= "Sem categoria";
+$lang['article']			= "Artigo";
+$lang['actions'] 			= "Acções";
+$lang['fieldset_required'] 	= "Obrigatório";
+$lang['category'] 			= "Categoria";
+$lang['modification']		= "Modificação";
+$lang['title']				= "Título";
+$lang['intro'] 				= "Introdução";
+$lang['description']		= "Descrição";
+$lang['status']  			= "Estado";
+$lang['active'] 			= "Activo";
+$lang['inactive'] 			= "Rascunho";
+$lang['choose_file']		= "Carregar Ficheiro";
+$lang['no_choose_file'] 	= "Nenhum Ficheiro Selecionado";
+$lang['order']				= "Ordenar";
+$lang['publish']			= "Publicar";
+$lang['published']			= "Público";
+$lang['unpublish']			= "Rascunho";
+$lang['delete']				= "Apagar";
+$lang['edit']				= "Editar";
+$lang['no_category']		= "Sem categoria";
 
 
 /*

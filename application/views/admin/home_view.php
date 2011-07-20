@@ -39,7 +39,7 @@
 					<a class="shortcut-button" href="<?php echo base_url();?>index.php/admin/trash">
 						<span>
 							<img src="<?php echo base_url();?>public/backend/images/icons/trashicon.png" alt="icon" /><br />
-							Reciclagem
+							<?=$this->lang->line('trash'); ?>
 						</span>
 					</a>
 				</li>

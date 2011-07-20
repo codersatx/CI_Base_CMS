@@ -143,7 +143,7 @@
 						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => $this->lang->line('add'));
 					?>
 						<?=form_open_multipart('admin/articles/add');?>
-							<?=form_fieldset($this->lang->line('required')); ?>
+							<?=form_fieldset($this->lang->line('fieldset_required')); ?>
 								<?=form_label('Categoria', 'idcategory'); ?>
 									<select name="idcategory">
 								 	 	<option value="0"><?=$this->lang->line('no_category'); ?></option>
@@ -190,7 +190,7 @@
 						$submit					= array('class' => 'button', 'id' => 'submit_article', 'value' => $this->lang->line('save_changes') );
 					?>
 						<?=form_open_multipart('admin/articles/edit/' . $article->idarticle);?>
-							<?=form_fieldset($this->lang->line('required')); ?>
+							<?=form_fieldset($this->lang->line('fieldset_required')); ?>
 							<?=form_label('Categoria', 'idcategory'); ?>
 									<select name="idcategory">
 								 	 	<option value="0"><?=$this->lang->line('no_category'); ?></option>
@@ -203,7 +203,7 @@
 								<?=form_input($articletitle);?> <?=form_error('articletitle')?>
 								<br/><br/>
 								<?=form_label($this->lang->line('intro'), 'articleintro'); ?>
-								<?=form_textarea($articleintro);?>
+								<?=form_textarea($articleintro);?> <?=form_error('articleintro')?>
 								<br/><br/>
 								<?=form_label($this->lang->line('description'), 'articledescription'); ?>
 								<?=form_textarea($articledescription);?>
