@@ -8,7 +8,7 @@
 					<?php if ($action == 'list' || $action == 'add'):?>
 					<ul class="content-box-tabs">
 						<?php if ($action == 'list'):?><li><a href="#tab1" class="default-tab"><?=$this->lang->line('listing'); ?></a></li><?php endif;?> <!-- href must be unique and match the id of target div -->
-						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"><?=$this->lang->line('add'); ?> <?=$this->lang->line('article'); ?></a> <?php endif;?>
+						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"><?=$this->lang->line('add_article'); ?></a> <?php endif;?>
 					</ul>	
 					<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -113,7 +113,7 @@
 											echo $this->lang->line('published'); 
 										}
 										elseif ($row->articlestatus == 'inactive'){
-											echo "<span style=\"color: red;\">". $this->lang->line('unpublish') ."</span>";
+											echo "<span style=\"color: red;\">". $this->lang->line('unpublished') ."</span>";
 										}
 										?>
 										</td>
