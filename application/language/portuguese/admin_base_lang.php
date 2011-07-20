@@ -46,7 +46,7 @@ $lang['no_choose_file'] 	= "Nenhum Ficheiro Selecionado";
 $lang['order']				= "Ordenar";
 $lang['publish']			= "Publicar";
 $lang['published']			= "Público";
-$lang['unpublish']			= "Rascunho";
+$lang['unpublished']		= "Rascunho";
 $lang['delete']				= "Apagar";
 $lang['edit']				= "Editar";
 $lang['no_category']		= "Sem categoria";
@@ -101,6 +101,7 @@ $lang['type_menu']     	= "Tipo de menu";
 $lang['child_of']		= "Descendente de:";
 $lang['article']		= "Artigo";
 $lang['category']		= "Categoria";
+$lang['static']			= "Estático";
 
 
 /*
