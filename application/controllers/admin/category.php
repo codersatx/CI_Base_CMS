@@ -7,7 +7,7 @@ class Category extends CI_Controller {
 		if($this->users_model->Secure(array('type_2' => 'developer')) || $this->users_model->Secure(array('type_2' => 'admin'))
 			|| $this->users_model->Secure(array('type_2' => 'manager'))){
 		}else{
-			$this->session->flashdata('flasherror', 'You must be logged into a valid admin account to access the admin area.');
+			$this->session->flashdata('flasherror', $this->lang->line('you_must_logged'));
 			redirect('admin/login');
 		}
 		$this->load->model('admin/category_model');
@@ -27,8 +27,8 @@ class Category extends CI_Controller {
 		$config['uri_segment']  	= 4;
 		$config['first_link'] 		= false;
 		$config['last_link'] 		= false;
-		$config['next_link'] 		= 'Seguinte';
-		$config['prev_link'] 		= 'Anterior';
+		$config['next_link'] 		= $this->lang->line('next').' »';
+		$config['prev_link'] 		= '« '.$this->lang->line('previous');
 		
 		$this->pagination->initialize($config); 
 		
@@ -52,19 +52,19 @@ class Category extends CI_Controller {
 		
 		//validate form
 		$this->form_validation->set_error_delimiters('<span class="input-notification error png_bg">', '</span>');
-		$this->form_validation->set_rules('categoryname', 'Nome', 'trim|required');
-		$this->form_validation->set_rules('categorydescription', 'Descrição', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('categoryname', $this->lang->line('name'), 'trim|required');
+		$this->form_validation->set_rules('categorydescription', $this->lang->line('description'), 'trim|required|min_length[5]');
 		
 		if ($this->form_validation->run()) {
 			//validation passes
 			$new_category = $this->category_model->AddCategory($_POST);
 			
 			if ($new_category) {
-				$this->session->set_flashdata('flashConfirm', 'A categoria foi criada com sucesso!');
+				$this->session->set_flashdata('flashConfirm', $this->lang->line('category_created'));
 				redirect('admin/category');
 			}
 			else {
-				$this->session->set_flashdata('flashError', 'Houve um erro na base de dados ao adicionar a categoria!');
+				$this->session->set_flashdata('flashError', $this->lang->line('category_nocreated'));
 				redirect('admin/category');
 			}
 		}
@@ -91,18 +91,18 @@ class Category extends CI_Controller {
 		
 		//validate form
 		$this->form_validation->set_error_delimiters('<span class="input-notification error png_bg">', '</span>');
-		$this->form_validation->set_rules('categoryname', 'Nome', 'trim|required');
-		$this->form_validation->set_rules('categorydescription', 'Descrição', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('categoryname', $this->lang->line('name'), 'trim|required');
+		$this->form_validation->set_rules('categorydescription', $this->lang->line('description'), 'trim|required|min_length[5]');
 		
 		if ($this->form_validation->run()) {
 			//validation passes
 			$_POST['idcategory'] = $idcategory;
 			if ($this->Category_model->UpdateCategory($_POST)) {
-				$this->session->set_flashdata('flashConfirm', 'A categoria foi editada com sucesso!');
+				$this->session->set_flashdata('flashConfirm', $this->lang->line('category_edited'));
 				redirect('admin/category');
 			}
 			else {
-				$this->session->set_flashdata('flashError', 'Houve um erro ao editar a categoria!');
+				$this->session->set_flashdata('flashError', $this->lang->line('category_noedited'));
 				redirect('admin/category');
 			}
 		}
@@ -127,7 +127,7 @@ class Category extends CI_Controller {
 		
 		if (!empty($active_category)){
 			
-			$this->session->set_flashdata('flashError', 'Esta categoria est&aacute; associada a um menu. N&atilde;o pode ser apagada.'); 
+			$this->session->set_flashdata('flashError', $this->lang->line('category_nodeleted')); 
 			redirect('admin/category');
 			
 		} 
@@ -136,7 +136,7 @@ class Category extends CI_Controller {
 				'idcategory' 		=> $idcategory,
 				'categorystatus'	=> 'deleted'
 			));
-		$this->session->set_flashdata('flashConfirm', 'A Categoria foi apagada com sucesso.');
+		$this->session->set_flashdata('flashConfirm', $this->lang->line('category_deleted'));
 		redirect('admin/category');
 	}
 	

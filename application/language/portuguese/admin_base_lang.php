@@ -80,7 +80,14 @@ $lang['article_deleted']	 = "O Artigo foi apagado com sucesso.";
 $lang['article_nocreated']	 = "Houve um erro na base de dados ao adicionar o Artigo!";
 $lang['article_noedited']	 = "Houve um erro ao editar o Artigo!";
 $lang['article_nodeleted'] 	 = "Este artigo est&aacute; associado a um menu. N&atilde;o pode ser apagado.";
+$lang['category_created']	 = "A Categoria foi criada com sucesso!";	
+$lang['category_edited'] 	 = "A Categoria foi editada com sucesso!";
+$lang['category_deleted']	 = "A Categoria foi apagada com sucesso.";
+$lang['category_nocreated']	 = "Houve um erro na base de dados ao adicionar a Categoria";
+$lang['category_noedited']	 = "Houve um erro ao editar a Categoria!";
+$lang['category_nodeleted']  = "Esta categoria est&aacute; associado a um menu. N&atilde;o pode ser apagado.";
 $lang['no_reorder']			 = "Não foi possivel alterar a ordem dos produtos!";
+
 /*
  * 
  * 
