@@ -16,10 +16,8 @@ $lang['clear_filter']  	= "Limpar Filtragem";
 $lang['order_by']		= "Ordenar por:";
 $lang['filter_by']		= "Filtrar por:";
 $lang['listing'] 		= "Listagem";
-$lang['apply_edit']		= "Guardar Alterações";
+$lang['save_changes']	= "Guardar Alterações";
 $lang['choose_option']	= "Escolha uma acção...";
-$lang['close_notify']	= "Fechar esta notificação";
-
 
 /*
  * 
@@ -42,15 +40,34 @@ $lang['active'] 		= "Activo";
 $lang['inactive'] 		= "Rascunho";
 $lang['choose_file']	= "Carregar Ficheiro";
 $lang['no_choose_file'] = "Nenhum Ficheiro Selecionado";
-$lang['you_sure_cont']	= "Tem a certeza que quer continuar?";
 $lang['order']			= "Ordenar";
 $lang['publish']		= "Publicar";
 $lang['published']		= "Público";
 $lang['unpublish']		= "Rascunho";
 $lang['delete']			= "Apagar";
 $lang['edit']			= "Editar";
-$lang['you_sure_del']	= "Tem a certeza que quer apagar?";
 $lang['no_category']	= "Sem categoria";
+
+/*
+ * 
+ * 
+ * CATEGORIES
+ * 
+ * 
+ */
+
+$lang['categ_'] 	= "Categorias"; 
+
+/*
+ * 
+ * 
+ * MESSAGES CONFIRMATIONS, ERRORS ALERTS
+ * 
+ * 
+ */
+$lang['you_sure_del']	= "Tem a certeza que quer apagar?";
+$lang['you_sure_cont']	= "Tem a certeza que quer continuar?";
+$lang['close_notify']	= "Fechar esta notificação";
 /*
  * 
  * 
@@ -97,7 +114,6 @@ $lang['optional']		= "Opcional";
 $lang['welcome'] 		= "Olá";
 $lang['see_website']	= "Ver site";
 $lang['logout']			= "logout";
-
 $lang['dashboard'] 		= "Painel Principal";
 
 $lang['articles'] 		= "Artigos";

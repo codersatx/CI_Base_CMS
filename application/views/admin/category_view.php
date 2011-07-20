@@ -4,11 +4,11 @@
 		<div id="main-content">
 			<div class="content-box"><!-- Start Content Box -->
 				<div class="content-box-header">
-					<h3>Categorias</h3>
+					<h3><?=$this->lang->line('categories'); ?></h3>
 					<?php if ($action == 'list' || $action == 'add'):?>
 					<ul class="content-box-tabs">
-						<?php if ($action == 'list'):?><li><a href="#tab1" class="default-tab">Listagem</a></li><?php endif;?> <!-- href must be unique and match the id of target div -->
-						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"> Adicionar Categoria</a> <?php endif;?>
+						<?php if ($action == 'list'):?><li><a href="#tab1" class="default-tab"><?=$this->lang->line('listing'); ?></a></li><?php endif;?> <!-- href must be unique and match the id of target div -->
+						<?php if ($action == 'add'):?><li><a href="#tab2" class="default-tab"> <?=$this->lang->line('add'); ?> <?=$this->lang->line('category'); ?></a> <?php endif;?>
 					</ul>	
 					<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -16,7 +16,7 @@
 					<div class="tab-content <?php if ($action == 'list'):?> default-tab<?php endif;?>" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->	
 						<?php if ($this->session->flashdata('flashError')):?>
 							<div class="notification error png_bg">
-								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="<?=$this->lang->line('close_notify'); ?>" alt="close" /></a>
 								<div>
 									<?=$this->session->flashdata('flashError'); ?>
 								</div>
@@ -24,7 +24,7 @@
 						<?php endif;?>	
 						<?php if ($this->session->flashdata('flashConfirm')):?>
 							<div class="notification success png_bg">
-								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
+								<a href="#" class="close"><img src="<?=base_url() ?>public/backend/images/icons/cross_grey_small.png" title="<?=$this->lang->line('close_notify'); ?>" alt="close" /></a>
 								<div>
 									<?=$this->session->flashdata('flashConfirm'); ?>
 								</div>
@@ -35,9 +35,9 @@
 								<tr>
 								   <!-- <th><input class="check-all" type="checkbox" /></th> -->
 								   <th>ID</th>
-								   <th>Nome</th>
-								   <th>Status</th>
-								   <th>acções</th>
+								   <th><?=$this->lang->line('name'); ?></th>
+								   <th><?=$this->lang->line('status'); ?></th>
+								   <th><?=$this->lang->line('actions'); ?></th>
 								</tr>
 							</thead>
 							 <tfoot>
@@ -72,13 +72,13 @@
 											<!-- Icons -->
 											<?php $edit_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/pencil.png\" alt=\"Edit\" />"; ?>
 											<?php $delete_icon 	= "<img src=\"" . base_url() . "public/backend/images/icons/cross.png\" alt=\"Delete\" />"; ?>
-											<?=anchor("admin/category/edit/$row->idcategory", $edit_icon, 'title="Editar"'); ?>
-											<?=anchor("admin/category/delete/$row->idcategory", $delete_icon, 'title="Apagar" onclick="return confirm(\'Tem a certeza que quer apagar?\')"'); ?> 
+											<?=anchor("admin/category/edit/$row->idcategory", $edit_icon, 'title=" '. $this->lang->line('edit') . '"'); ?>
+											<?=anchor("admin/category/delete/$row->idcategory", $delete_icon, 'title="Apagar" onclick="return confirm(\' ' . $this->lang->line('you_sure_del') . '\')"'); ?> 
 										</td>
 									</tr>
 								<?php endforeach;?>
 								<?php else :?>
-								<?="Não existem valores a mostrar nesta listagem."; ?>
+								<?=$this->lang->line('no_results'); ?>
 							<?php  endif;?>
 							</tbody>
 						</table>
@@ -88,10 +88,10 @@
 						$categoryname			= array('name' => 'categoryname', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('categoryname'));
 						$categorydescription	= array('name' => 'categorydescription', 'class' => 'text-input textarea wysiwyg', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('categorydescription'));
 						$options_category 		= array('active' => 'Activa', 'inactive' => 'inactiva'); 
-						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => 'Adicionar');
+						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => $this->lang->line('add') );
 					?>
 						<?=form_open('admin/category/add');?>
-							<?=form_fieldset('Obrigatório'); ?>
+							<?=form_fieldset($this->lang->line('required')); ?>
 								<?=form_label('Nome', 'categoryname'); ?>
 								<?=form_input($categoryname);?> <?=form_error('categoryname')?>
 								<br/><br/>
@@ -122,7 +122,7 @@
 						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => 'Salvar Alterações');
 					?>
 						<?=form_open('admin/category/edit/' . $category->idcategory);?>
-							<?=form_fieldset('Obrigatório'); ?>
+							<?=form_fieldset($this->lang->line('required')); ?>
 								<?=form_label('Nome', 'categoryname'); ?>
 								<?=form_input($categoryname);?> <?=form_error('categoryname')?>
 								<br/><br/>

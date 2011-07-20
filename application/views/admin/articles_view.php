@@ -126,7 +126,6 @@
 										</td>
 									</tr>
 								<?php endforeach;?>
-							
 								<?php else :?>
 								<?=$this->lang->line('no_results'); ?>
 							<?php  endif;?>
@@ -139,9 +138,9 @@
 						$articletitle			= array('name' => 'articletitle', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('articletitle'));
 						$articleintro			= array('name' => 'articleintro', 'class' => 'text-input textarea', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('articleintro'));
 						$articledescription		= array('name' => 'articledescription', 'class' => 'text-input textarea', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('articledescription'));
-						$options_article 		= array('active' => 'Activo', 'inactive' => 'inactivo'); 
+						$options_article 		= array('active' => $this->lang->line('active'), 'inactive' => $this->lang->line('inactive')); 
 						$articleimage			= array('name' => 'userfile');
-						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => 'Adicionar');
+						$submit					= array('class' => 'button', 'id' => 'submit_category', 'value' => $this->lang->line('add'));
 					?>
 						<?=form_open_multipart('admin/articles/add');?>
 							<?=form_fieldset($this->lang->line('required')); ?>
@@ -153,16 +152,16 @@
 								 	 	<?php endforeach;?>
 									</select>
 									<br/><br/>
-								<?=form_label('Titulo', 'articletitle'); ?>
+								<?=form_label($this->lang->line('title'), 'articletitle'); ?>
 								<?=form_input($articletitle);?> <?=form_error('articletitle')?>
 								<br/><br/>
-								<?=form_label('Introdução', 'articleintro'); ?> 
+								<?=form_label($this->lang->line('intro'), 'articleintro'); ?> 
 								<?=form_textarea($articleintro);?><?=form_error('articleintro')?>
 								<br/><br/>
-								<?=form_label('Descrição', 'articledescription'); ?>
+								<?=form_label($this->lang->line('description'), 'articledescription'); ?>
 								<?=form_textarea($articledescription);?>
 								<br/><br/>
-								<?=form_label('Estado', 'articlestatus'); ?>
+								<?=form_label($this->lang->line('status'), 'articlestatus'); ?>
 								<?=form_dropdown('articlestatus', $options_article, 'active'); ?>
 								<br/><br/>
 								<?=form_label('Imagem', 'userfile');?>
@@ -176,7 +175,7 @@
 			</div> <!-- End .content-box -->
 			<?php elseif ($action == 'edit'):?>
 				<ul class="content-box-tabs">
-					<li><a href="#tab1" class="default-tab">Editar Artigo</a></li> <!-- href must be unique and match the id of target div -->
+					<li><a href="#tab1" class="default-tab"><?=$this->lang->line('edit'); ?> <?=$this->lang->line('article'); ?></a></li> <!-- href must be unique and match the id of target div -->
 				</ul>
 				<div class="clear"></div>
 				</div> <!-- End .content-box-header -->
@@ -186,9 +185,9 @@
 						$articletitle			= array('name' => 'articletitle', 'class' => 'text-input small-input', 'id' => 'small-input', 'value' => set_value('articletitle', $article->articletitle));
 						$articleintro			= array('name' => 'articleintro', 'class' => 'text-input textarea', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('articleintro', utf8_decode($article->articleintro)));
 						$articledescription		= array('name' => 'articledescription', 'class' => 'text-input textarea', 'id' => 'textarea', 'cols' => '79', 'rows' => '15', 'value' => set_value('articledescription', utf8_decode($article->articledescription)));
-						$options_article 		= array('active' => 'Activo', 'inactive' => 'Inactivo'); 
+						$options_article 		= array('active' => $this->lang->line('active'), 'inactive' => $this->lang->line('inactive')); 
 						$articleimage			= array('name' => 'userfile');
-						$submit					= array('class' => 'button', 'id' => 'submit_article', 'value' => 'Salvar Alterações');
+						$submit					= array('class' => 'button', 'id' => 'submit_article', 'value' => $this->lang->line('save_changes') );
 					?>
 						<?=form_open_multipart('admin/articles/edit/' . $article->idarticle);?>
 							<?=form_fieldset($this->lang->line('required')); ?>
@@ -200,16 +199,16 @@
 								 	 	<?php endforeach;?>
 									</select>
 								<br/><br/>
-								<?=form_label('Titulo', 'articletitle'); ?>
+								<?=form_label($this->lang->line('title'), 'articletitle'); ?>
 								<?=form_input($articletitle);?> <?=form_error('articletitle')?>
 								<br/><br/>
-								<?=form_label('Introdução', 'articleintro'); ?>
+								<?=form_label($this->lang->line('intro'), 'articleintro'); ?>
 								<?=form_textarea($articleintro);?>
 								<br/><br/>
-								<?=form_label('Descrição', 'articledescription'); ?>
+								<?=form_label($this->lang->line('description'), 'articledescription'); ?>
 								<?=form_textarea($articledescription);?>
 								<br/><br/>
-								<?=form_label('Estado', 'articlestatus'); ?>
+								<?=form_label($this->lang->line('status'), 'articlestatus'); ?>
 								<?=form_dropdown('articlestatus', $options_article, utf8_encode($article->articlestatus)); ?>
 								<br/><br/>
 								<img width="200" src="<?=base_url(); ?>public/images/articles/<?=$article->articleimage; ?>"/>
